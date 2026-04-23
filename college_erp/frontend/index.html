@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>City College of Management v2.0</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Chart.js for graphs -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+</head>
+<body>
+
+<!-- Toast Notification -->
+<div id="notification" class="notification"></div>
+
+<!-- ===== LOGIN PAGE ===== -->
+<div id="loginPage">
+    <div class="login-bg-grid"></div>
+    <div class="login-card">
+        <div class="login-logo">🎓</div>
+        <h1>College ERP</h1>
+        <p>Select your role to continue</p>
+
+        <div class="role-grid">
+            <button class="role-btn" onclick="selectRole('admin', this)">
+                <span class="icon">👨‍💼</span>Admin
+            </button>
+            <button class="role-btn" onclick="selectRole('student', this)">
+                <span class="icon">👨‍🎓</span>Student
+            </button>
+            <button class="role-btn" onclick="selectRole('staff', this)">
+                <span class="icon">👨‍🏫</span>Staff
+            </button>
+        </div>
+
+        <div id="loginForm" class="hidden">
+            <div class="form-group">
+                <label>Username</label>
+                <input type="text" id="loginUser" placeholder="Enter your username">
+            </div>
+            <div class="form-group">
+                <label>Password</label>
+                <input type="password" id="loginPass" placeholder="Enter your password"
+                       onkeydown="if(event.key==='Enter') login()">
+            </div>
+            <button class="login-btn" onclick="login()">Login →</button>
+            <p class="error-msg hidden" id="loginErr">❌ Invalid credentials!</p>
+        </div>
+    </div>
+</div>
+
+<!-- ===== MAIN APP ===== -->
+<div id="app" class="hidden">
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <div class="sidebar-logo">
+                <div class="sidebar-logo-icon">🎓</div>
+                <div class="sidebar-logo-text">
+                    <h2>College ERP</h2>
+                    <p>City College of Management Tiwariganj Chinhat Lucknow</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="user-info">
+            <div class="user-avatar" id="uAvatar">👤</div>
+            <div>
+                <div class="name" id="uName">—</div>
+                <div class="role-tag" id="uRole">—</div>
+            </div>
+        </div>
+
+        <nav class="nav-menu" id="navMenu"></nav>
+
+        <div class="sidebar-bottom">
+            <!-- Dark Mode Toggle -->
+            <div class="dark-toggle" onclick="toggleDark()">
+                <span>🌙 Dark Mode</span>
+                <div class="toggle-switch" id="darkToggle"></div>
+            </div>
+            <button class="logout-btn" onclick="logout()">🚪 Logout</button>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content" id="mainContent"></div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
